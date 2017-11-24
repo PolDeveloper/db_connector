@@ -79,16 +79,9 @@ class db_class
             return true;
         } 
     }
-
-    public function getRow() {
-        $row = mysqli_fetch_row($this->result);
-        return $row;
-    }
-
     public function dataFilter($data) {
         if (is_array($data)) {
-            foreach($data as $k => $v)
-			{
+            foreach($data as $k => $v) {
 				$data[$k] = $this->dataFilter($v);
 			}  
         } else {
